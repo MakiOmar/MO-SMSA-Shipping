@@ -36,15 +36,10 @@ class MO_Shipping_Method extends WC_Shipping_Method {
      */
     public function get_method_description() {
         return sprintf(
-            '<h3>%s</h3><br>%s<br>%s<br>%s<br><h3>%s</h3>%s<br>%s<br>%s',
-            __('MO SHIPPING PLUGIN INSTALLATION GUIDE', 'mo-shipping-integration'),
+            '%s<br>%s<br>%s',
             __('MO Shipping Integration Plugin requires a valid SMSA account number, username, and password.', 'mo-shipping-integration'),
             sprintf(__('Please send us an email at %s to have these credentials created and sent to you.', 'mo-shipping-integration'), 'maki3omar@gmail.com'),
-            sprintf(__('If you don\'t have an account number, please send us an email at %s to have your account number created.', 'mo-shipping-integration'), 'maki3omar@gmail.com'),
-            __('تعليمات التحميل لتطبيق شحن MO', 'mo-shipping-integration'),
-            __('يتطلب هذا التطبيق إدخال رقم حساب فعًال, إسم المستخدم و الرقم السري الخاص بحسابكم.', 'mo-shipping-integration'),
-            sprintf(__('يرجى مراسلتنا على الإيميل أدناه ليتم تزويدكم ببيانات الحساب والرقم السري. %s', 'mo-shipping-integration'), 'maki3omar@gmail.com'),
-            sprintf(__('إذا لا يوجد لديكم رقم حساب, يرجى مراسلتنا عبر الإيميل أدناه ليتم إنشاء رقم حسابكم لدى سمسا إكسبريس. %s', 'mo-shipping-integration'), 'maki3omar@gmail.com')
+            sprintf(__('If you don\'t have an account number, please send us an email at %s to have your account number created.', 'mo-shipping-integration'), 'maki3omar@gmail.com')
         );
     }
 
