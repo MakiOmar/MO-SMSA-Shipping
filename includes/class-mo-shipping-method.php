@@ -118,14 +118,21 @@ class MO_Shipping_Method extends WC_Shipping_Method {
             return false;
         }
 
-        // Validate credentials with SMSA API
-        $api = new MO_Shipping_API();
-        if (!$api->validate_credentials()) {
-            WC_Admin_Settings::add_error(__('Please check your credentials and try again.', 'mo-shipping-integration'));
-            return false;
+        // First save the settings
+        $result = parent::process_admin_options();
+        
+        if ($result) {
+            // Then validate credentials with SMSA API using the saved settings
+            $api = new MO_Shipping_API();
+            if (!$api->validate_credentials()) {
+                WC_Admin_Settings::add_error(__('Settings saved but credentials validation failed. Please check your SMSA credentials and try again.', 'mo-shipping-integration'));
+                // Don't return false here as settings are already saved
+            } else {
+                WC_Admin_Settings::add_message(__('Settings saved and credentials validated successfully!', 'mo-shipping-integration'));
+            }
         }
 
-        return parent::process_admin_options();
+        return $result;
     }
 
     /**

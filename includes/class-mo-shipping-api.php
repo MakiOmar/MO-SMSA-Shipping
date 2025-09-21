@@ -70,13 +70,31 @@ class MO_Shipping_API {
         $response = wp_remote_post($this->api_base_url . '/Token', $args);
 
         if (is_wp_error($response)) {
+            error_log('MO Shipping: API request failed - ' . $response->get_error_message());
             return false;
         }
 
+        $response_code = wp_remote_retrieve_response_code($response);
         $body = wp_remote_retrieve_body($response);
-        $data = json_decode($body);
+        
+        if ($response_code !== 200) {
+            error_log('MO Shipping: API returned error code ' . $response_code . ' - ' . $body);
+            return false;
+        }
 
-        return isset($data->token) ? $data->token : false;
+        $data = json_decode($body);
+        
+        if (json_last_error() !== JSON_ERROR_NONE) {
+            error_log('MO Shipping: Failed to decode JSON response - ' . json_last_error_msg());
+            return false;
+        }
+
+        if (!isset($data->token) || empty($data->token)) {
+            error_log('MO Shipping: No token in API response - ' . $body);
+            return false;
+        }
+
+        return $data->token;
     }
 
     /**
@@ -183,6 +201,20 @@ class MO_Shipping_API {
      * @return bool
      */
     public function validate_credentials() {
-        return $this->get_token() !== false;
+        $token = $this->get_token();
+        
+        if ($token === false) {
+            // Log the error for debugging
+            error_log('MO Shipping: Credentials validation failed - unable to get token');
+            return false;
+        }
+        
+        // Additional validation: check if token is not empty
+        if (empty($token)) {
+            error_log('MO Shipping: Credentials validation failed - empty token received');
+            return false;
+        }
+        
+        return true;
     }
 }
