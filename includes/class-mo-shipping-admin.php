@@ -81,16 +81,21 @@ class MO_Shipping_Admin {
         if ('shop_order' === $typenow && 'top' === $which) {
             ?>
             <div class="alignleft actions custom" style="margin-left: 10px;">
-                <div class="smsa-dropdown" style="position: relative; display: inline-block;">
-                    <button id="smsa-main-btn" type="button" class="button" style="height:32px; background: #6c5ce7; color: #fff; border: 2px solid #fd79a8;">
-                        <?php echo __('SMSA', 'mo-shipping-integration'); ?> ▼
+                <div class="fastlo-dropdown" style="position: relative; display: inline-block;">
+                    <button id="fastlo-main-btn" type="button" class="button" style="height:32px; background: #fff; color: #333; border: 1px solid #0073aa; border-radius: 4px; padding: 6px 12px; display: flex; align-items: center; gap: 8px;">
+                        <div style="width: 20px; height: 20px; background: #f0f0f0; border-radius: 3px; display: flex; align-items: center; justify-content: center; font-size: 12px; color: #666;">⚡</div>
+                        <div style="text-align: left;">
+                            <div style="font-weight: 600; font-size: 14px; line-height: 1;">Fastlo</div>
+                            <div style="font-size: 11px; color: #666; line-height: 1;">Fast Logistics Services</div>
+                        </div>
+                        <span style="margin-left: 5px; font-size: 12px;">▼</span>
                     </button>
-                    <div id="smsa-dropdown-menu" style="display: none; position: absolute; top: 100%; left: 0; background: #fff; border: 1px solid #ddd; border-radius: 4px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); z-index: 1000; min-width: 180px;">
-                        <button id="print-all" type="button" class="button" style="width: 100%; text-align: left; border: none; border-bottom: 1px solid #eee; border-radius: 0; background: #fff; color: #333; padding: 10px 15px;">
-                            <?php echo __('Print All Label', 'mo-shipping-integration'); ?>
+                    <div id="fastlo-dropdown-menu" style="display: none; position: absolute; top: 100%; left: 0; background: #fff; border: 1px solid #ddd; border-radius: 4px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); z-index: 1000; min-width: 200px; margin-top: 2px;">
+                        <button id="print-all" type="button" class="button" style="width: 100%; text-align: left; border: none; border-bottom: 1px solid #eee; border-radius: 0; background: #fff; color: #333; padding: 12px 15px; font-weight: 500;">
+                            <?php echo __('Bulk Print Label', 'mo-shipping-integration'); ?>
                         </button>
-                        <button id="create-all" type="button" class="button" style="width: 100%; text-align: left; border: none; border-radius: 0; background: #fff; color: #333; padding: 10px 15px;">
-                            <?php echo __('Create All Shipment', 'mo-shipping-integration'); ?>
+                        <button id="create-all" type="button" class="button" style="width: 100%; text-align: left; border: none; border-radius: 0; background: #fff; color: #333; padding: 12px 15px; font-weight: 500;">
+                            <?php echo __('Bulk Create Shipment', 'mo-shipping-integration'); ?>
                         </button>
                     </div>
                 </div>
