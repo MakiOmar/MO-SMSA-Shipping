@@ -34,7 +34,7 @@ class MO_Shipping_Method extends WC_Shipping_Method {
      *
      * @return string
      */
-    private function get_method_description() {
+    public function get_method_description() {
         return sprintf(
             '<h3>%s</h3><br>%s<br>%s<br>%s<br><h3>%s</h3>%s<br>%s<br>%s',
             __('MO SHIPPING PLUGIN INSTALLATION GUIDE', 'mo-shipping-integration'),
