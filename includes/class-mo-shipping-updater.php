@@ -49,7 +49,7 @@ class MO_Shipping_Updater {
      */
     private function init_github_updater() {
         $this->update_checker = \YahnisElsts\PluginUpdateChecker\v5\PucFactory::buildUpdateChecker(
-            'https://github.com/maki3omar/mo-shipping-integration', // Replace with your GitHub repo
+            'https://github.com/MakiOmar/MO-SMSA-Shipping', // Your actual GitHub repository
             MO_SHIPPING_PLUGIN_FILE,
             'mo-shipping-integration'
         );
