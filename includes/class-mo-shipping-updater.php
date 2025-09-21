@@ -60,8 +60,10 @@ class MO_Shipping_Updater {
         // Add license validation (optional)
         $this->update_checker->addQueryArgFilter(array($this, 'add_license_to_request'));
         
-        // Add custom headers (optional)
-        $this->update_checker->addHttpRequestFilter(array($this, 'add_custom_headers'));
+        // Add custom headers (optional) - Note: method name changed in v5p6
+        if (method_exists($this->update_checker, 'addHttpRequestArgFilter')) {
+            $this->update_checker->addHttpRequestArgFilter(array($this, 'add_custom_headers'));
+        }
     }
 
     /**
@@ -76,6 +78,11 @@ class MO_Shipping_Updater {
         
         // Add license validation
         $this->update_checker->addQueryArgFilter(array($this, 'add_license_to_request'));
+        
+        // Add custom headers (optional) - Note: method name changed in v5p6
+        if (method_exists($this->update_checker, 'addHttpRequestArgFilter')) {
+            $this->update_checker->addHttpRequestArgFilter(array($this, 'add_custom_headers'));
+        }
     }
 
     /**
