@@ -35,12 +35,7 @@ class MO_Shipping_Method extends WC_Shipping_Method {
      * @return string
      */
     public function get_method_description() {
-        return sprintf(
-            '%s<br>%s<br>%s',
-            __('MO Shipping Integration Plugin requires a valid SMSA account number, username, and password.', 'mo-shipping-integration'),
-            sprintf(__('Please send us an email at %s to have these credentials created and sent to you.', 'mo-shipping-integration'), 'maki3omar@gmail.com'),
-            sprintf(__('If you don\'t have an account number, please send us an email at %s to have your account number created.', 'mo-shipping-integration'), 'maki3omar@gmail.com')
-        );
+        return __('Professional shipping integration for WooCommerce with SMSA Express support.', 'mo-shipping-integration');
     }
 
     /**
