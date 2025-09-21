@@ -80,13 +80,20 @@ class MO_Shipping_Admin {
 
         if ('shop_order' === $typenow && 'top' === $which) {
             ?>
-            <div class="alignleft actions custom">
-                <button id="print-all" type="button" style="height:32px;" class="button" value="">
-                    <?php echo __('Print All Label', 'mo-shipping-integration'); ?>
-                </button>
-                <button id="create-all" type="button" style="height:32px;" class="button" value="">
-                    <?php echo __('Create All Shipment', 'mo-shipping-integration'); ?>
-                </button>
+            <div class="alignleft actions custom" style="margin-left: 10px;">
+                <div class="smsa-dropdown" style="position: relative; display: inline-block;">
+                    <button id="smsa-main-btn" type="button" class="button" style="height:32px; background: #6c5ce7; color: #fff; border: 2px solid #fd79a8;">
+                        <?php echo __('SMSA', 'mo-shipping-integration'); ?> ▼
+                    </button>
+                    <div id="smsa-dropdown-menu" style="display: none; position: absolute; top: 100%; left: 0; background: #fff; border: 1px solid #ddd; border-radius: 4px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); z-index: 1000; min-width: 180px;">
+                        <button id="print-all" type="button" class="button" style="width: 100%; text-align: left; border: none; border-bottom: 1px solid #eee; border-radius: 0; background: #fff; color: #333; padding: 10px 15px;">
+                            <?php echo __('Print All Label', 'mo-shipping-integration'); ?>
+                        </button>
+                        <button id="create-all" type="button" class="button" style="width: 100%; text-align: left; border: none; border-radius: 0; background: #fff; color: #333; padding: 10px 15px;">
+                            <?php echo __('Create All Shipment', 'mo-shipping-integration'); ?>
+                        </button>
+                    </div>
+                </div>
             </div>
             <?php
         }

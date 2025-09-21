@@ -68,7 +68,27 @@ function mo_shipping_admin_javascript() { ?>
         // Create nonce for AJAX requests
         var moShippingNonce = '<?php echo wp_create_nonce('mo_shipping_nonce'); ?>';
 
+        // SMSA Dropdown functionality
+        $('#smsa-main-btn').click(function(e) {
+            e.stopPropagation();
+            $('#smsa-dropdown-menu').toggle();
+        });
+
+        // Close dropdown when clicking outside
+        $(document).click(function(e) {
+            if (!$(e.target).closest('.smsa-dropdown').length) {
+                $('#smsa-dropdown-menu').hide();
+            }
+        });
+
+        // Hover effects for dropdown buttons
+        $('#smsa-dropdown-menu button').hover(
+            function() { $(this).css('background', '#f8f9fa'); },
+            function() { $(this).css('background', '#fff'); }
+        );
+
         $('#create-all').click(function(){
+            $('#smsa-dropdown-menu').hide(); // Close dropdown
             var list1 = new Array();
             $("input[name='post[]']:checked").each(function (index, obj) {
                 list1.push('&order_ids[]='+$(this).val());
@@ -82,6 +102,7 @@ function mo_shipping_admin_javascript() { ?>
         });
 
         $('#print-all').click(function(){
+            $('#smsa-dropdown-menu').hide(); // Close dropdown
             var list = new Array();
             $("input[name='post[]']:checked").each(function (index, obj) {
                 list.push($(this).val());
