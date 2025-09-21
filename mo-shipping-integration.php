@@ -5,7 +5,7 @@
  * Description: Professional shipping integration for WooCommerce with SMSA Express support
  * Author: Mohammad Omar
  * Author URI: mailto:maki3omar@gmail.com
- * Version: 2.1
+ * Version: 2.2
  * Text Domain: mo-shipping-integration
  * Domain Path: /languages
  * Requires at least: 5.3
@@ -23,7 +23,7 @@ if (!defined('ABSPATH')) {
 }
 
 // Define plugin constants
-define('MO_SHIPPING_VERSION', '2.1');
+define('MO_SHIPPING_VERSION', '2.2');
 define('MO_SHIPPING_PLUGIN_FILE', __FILE__);
 define('MO_SHIPPING_PLUGIN_DIR', plugin_dir_path(__FILE__));
 define('MO_SHIPPING_PLUGIN_URL', plugin_dir_url(__FILE__));
