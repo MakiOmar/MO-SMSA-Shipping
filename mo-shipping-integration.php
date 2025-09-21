@@ -47,6 +47,7 @@ function mo_shipping_init() {
 }
 add_action('plugins_loaded', 'mo_shipping_init');
 
+
 /**
  * WooCommerce missing notice
  */

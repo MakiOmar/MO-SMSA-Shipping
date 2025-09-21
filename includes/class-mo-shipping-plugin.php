@@ -93,6 +93,9 @@ class MO_Shipping_Plugin {
         if (is_admin()) {
             require_once MO_SHIPPING_PLUGIN_DIR . 'includes/class-mo-shipping-admin.php';
         }
+        
+        // Include updater class
+        require_once MO_SHIPPING_PLUGIN_DIR . 'includes/class-mo-shipping-updater.php';
     }
 
     /**
@@ -121,6 +124,9 @@ class MO_Shipping_Plugin {
         if (is_admin()) {
             new MO_Shipping_Admin();
         }
+
+        // Initialize update checker
+        new MO_Shipping_Updater();
 
         // Initialize frontend functionality
         $this->init_frontend();
